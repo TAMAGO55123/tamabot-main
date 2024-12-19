@@ -1,4 +1,6 @@
 .DS_Store
 .env
 *.swp
-
+*.pdf
+*.png
+*.pptx

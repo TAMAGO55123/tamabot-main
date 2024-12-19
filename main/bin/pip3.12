@@ -1,4 +1,4 @@
-#!/workspaces/tamabot-main/main/bin/python3
+#!/Users/tamago/Desktop/github/tamabot-main/main/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
