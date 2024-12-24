@@ -6,6 +6,8 @@ import datetime
 import requests
 load_dotenv()
 from os import getenv
+from keep_alive import keep_alive
+
 
 
 
@@ -36,7 +38,7 @@ async def tenki_setup(interaction: discord.Interaction):
         await interaction.response.send_message("なんらかの影響で設定できませんでした。\n作成されたWebhookを手動で削除して下さい。")
 
 try:
+    keep_alive()
     bot.run(getenv("BOT_TOKEN"))
-    
 except Exception as e:
     print(f"エラーが発生しました。: {e}")
