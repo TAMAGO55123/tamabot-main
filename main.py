@@ -26,6 +26,8 @@ async def on_ready():
     except Exception as e:
         print(f"コマンドの同期でエラーが発生しました。\n{e}")
 
+
+
 @bot.tree.command(name="tenki_setup",description="天気Botのセットアップ")
 async def tenki_setup(interaction: discord.Interaction):
     discord_webhook = await interaction.channel.create_webhook(name="Weather Hook")
