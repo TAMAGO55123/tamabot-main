@@ -38,6 +38,7 @@ async def kaso2(interaction: Interaction, num:int, data:str, num_on:bool, silent
         if num_on:
             data3 = i+1
         else:
+            
             data3 = ''
         data2 += f"{data3}{data}\n"
     #if len(data2) > 2000:
