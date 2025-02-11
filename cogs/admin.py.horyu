@@ -1,0 +1,42 @@
+import discord
+from discord.ext import commands
+from discord import app_commands
+import os
+
+ADMIN_LIST=[
+
+]
+
+def check_admin(id:int):
+    return id in ADMIN_LIST
+
+class AdminGroup(app_commands.Group):
+    def __init__(self):
+        super().__init__(name="admin")
+    
+    @app_commands.command(name="test", description="テストコマンド")
+    async def test(self, interaction:discord.Interaction):
+        if check_admin(interaction.user.id):
+            await interaction.response.send_message("テスト")
+        else:
+            await interaction.response.send_message("このコマンドは、Botの管理者のみが使用可能です。", ephemeral=True)
+
+# commands.Cogを継承する
+class AdminCog(commands.Cog):
+    def __init__(self, bot:commands.Bot):
+        self.bot = bot
+    
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print("Admin-Cog ready!")
+        await self.bot.tree.add_command(AdminGroup())
+
+async def setup(bot:commands.Bot):
+    await bot.add_cog(AdminCog(bot))
+    
+    
+
+    
+
+async def setup(bot):
+    await bot.add_cog(AdminCog(bot))

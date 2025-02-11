@@ -1,0 +1,64 @@
+div#header{
+    display: block;
+    background-color: #000;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+}
+div#header h1, div#header i{
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    border: none 0px;
+}
+div#header i::before{
+    content: "\f0c9";
+    font-size: 40px;
+}
+div#header a{
+    display: inline-block;
+    height: 40px;
+}
+div#panel i.close::before{
+    content: "\f057";
+    font-size: 30px;
+    color: #000;
+}
+div.link a{
+    transition: 0.3s;
+}
+div.link a:hover{
+    filter: brightness(0.8);
+}
+div.main{
+    margin-top: 40px;
+}
+footer{
+    background-color: rgb(174, 174, 174);
+    text-align: center;
+    padding: 2px 0 2px 0;
+}
+img#logo{
+    max-width: 100%;
+}
+div#SocialLinks div{
+    text-align: center;
+    border: 1px solid rgb(45, 183, 233);
+    background-color: rgb(246, 250, 253);
+}
+div#InstallLinks a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.twitter::before{
+    content: "\e61b";
+    font-family:"Font Awesome 5 Free","Font Awesome 5 Brands";
+    color: black;
+}
+.github::before{
+    content: "\f09b";
+    font-family:"Font Awesome 5 Free","Font Awesome 5 Brands";
+    color: black;
+}

@@ -1,0 +1,19 @@
+.center{
+    display: block;
+    margin: auto;
+}
+.txcenter{
+    text-align: center;
+}
+.left{
+    float: left;
+}
+.leftk{
+    float: left;
+}
+.right{
+    float: right;
+}
+.rightk{
+    float: right;
+}
