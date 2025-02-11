@@ -39,6 +39,18 @@ async def tenki_setup(interaction: discord.Interaction):
     else:
         await interaction.response.send_message("なんらかの影響で設定できませんでした。\n作成されたWebhookを手動で削除して下さい。")
 
+@bot.tree.command(name="smash", description="何かを投げます")
+async def smash(interaction: discord.Interaction, smash:str):
+    await interaction.response.send_message(f"(っ'-')╮=͟͟͞ {smash}")
+
+@bot.tree.command(name="ggrks", description="ググレカス")
+async def ggrks(interaction:discord.Interaction, ggrks:str = "", link_embed:bool = True):
+    if link_embed:
+        link = f"https://ggrks.lol/{ggrks}"
+    else:
+        link = f"<https://ggrks.lol/{ggrks}>"
+    await interaction.response.send_message(link)
+
 try:
     keep_alive()
     bot.run(getenv("BOT_TOKEN"))
