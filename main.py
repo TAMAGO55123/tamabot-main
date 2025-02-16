@@ -46,7 +46,7 @@ async def main(bot:commands.Bot):
     print('--------------')
     print('| \033[4mT-BOT\033[0m \033[38;2;255;165;0m')
     print('| Made By TAMAGO55123')
-    print(f"| ServerName : {getenv("SERVER_NAME")}")
+    print(f"| ServerName : {getenv('SERVER_NAME')}")
     print('--------------')
     print('\033[0m')
     await bot.start(getenv("BOT_TOKEN"))
