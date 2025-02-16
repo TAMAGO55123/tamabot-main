@@ -1,3 +1,7 @@
+body{
+    background-color: #000;
+    color: #fff;
+}
 div#header{
     display: block;
     background-color: #000;
@@ -48,7 +52,6 @@ div#SocialLinks div{
     background-color: rgb(246, 250, 253);
 }
 div#InstallLinks a{
-    color: black;
     text-decoration: none;
     font-size: 1.5em;
 }
