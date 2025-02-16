@@ -2,6 +2,7 @@
 .env
 *.swp
 *.pdf
-*.png
 *.pptx
 __pycache__
+.zip
+docs/*.zip
