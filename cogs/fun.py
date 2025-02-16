@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
+from func.ready import bot_ready_print
 
 # commands.Cogを継承する
 class FunCog(commands.Cog):
@@ -9,10 +10,10 @@ class FunCog(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Fun-Cog ready!")
+        bot_ready_print("Fun-Cog")
 	
     @app_commands.command(name="ggrks", description="ググレカス")
-    async def ggrks(interaction:discord.Interaction, ggrks:str = "", link_embed:bool = True):
+    async def ggrks(self, interaction:discord.Interaction, ggrks:str = "", link_embed:bool = True):
         if link_embed:
             link = f"https://ggrks.lol/{ggrks}"
         else:
@@ -20,7 +21,7 @@ class FunCog(commands.Cog):
         await interaction.response.send_message(link)
     
     @app_commands.command(name="smash", description="何かを投げます")
-    async def smash(interaction: discord.Interaction, smash:str):
+    async def smash(self, interaction: discord.Interaction, smash:str):
         await interaction.response.send_message(f"(っ'-')╮=͟͟͞ {smash}")
 
 async def setup(bot):
