@@ -1,6 +1,5 @@
 import sqlite3
-import discord
-from discord.ext import commands
+
 
 conn = sqlite3.connect('tb.db')
 cursor = conn.cursor()
