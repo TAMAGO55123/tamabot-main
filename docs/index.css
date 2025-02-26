@@ -65,3 +65,57 @@ div#InstallLinks a{
     font-family:"Font Awesome 5 Free","Font Awesome 5 Brands";
     color: black;
 }
+div#about{
+    position: relative;
+    height: 200px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+img.icon{
+    border-radius: 100px;
+    border: 6px white solid;
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+h2#botname{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20%;
+    font-size: 60px;
+}
+div#installb a{
+    position: absolute;
+    top: 90%;
+    width: auto;
+    left: 20%;
+    background-color: orange;
+    border-color: orange;
+    color: white;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+div#panel{
+    background-color: #000;
+    color: white;
+    font-weight: 300;
+
+}
+div#link div{
+    text-align: center;
+    border:solid 1px rgb(39, 103, 126);
+    background-color: rgb(0, 0, 0);
+}
+div#link a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.discord::before{
+    content: "\f392";
+    font-family:"Font Awesome 5 Free","Font Awesome 5 Brands";
+    color: #7289da;
+}
