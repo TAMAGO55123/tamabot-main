@@ -4,7 +4,7 @@ from discord import app_commands
 from func.ready import bot_ready_print
 
 class NameCog(commands.Cog):
-    def __init__(self, bot):
+    def __init__(self, bot:commands.Bot):
         self.bot = bot
     
     @commands.Cog.listener()
