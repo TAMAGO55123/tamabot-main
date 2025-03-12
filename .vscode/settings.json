@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "192.168.68.76",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "Raspberry Pi 4 Server",
+            "database": "tbot",
+            "username": "tamago"
+        }
+    ]
+}
