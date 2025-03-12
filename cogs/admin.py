@@ -7,7 +7,8 @@ from func.ready import bot_ready_print
 
 ADMIN_LIST=[
     1209261129835085876,
-    1198921988769587211
+    1198921988769587211,
+    1225220580668739694
 ]
 
 def check_admin(id:int):
@@ -42,12 +43,9 @@ class AdminCog(commands.Cog):
     async def server_list(self, interaction:discord.Interaction):
         if check_admin(interaction.user.id):
             lists = self.bot.guilds
-            list_name = []
-            for i in lists:
-                list_name.append(i.name)
             des = ""
-            for i in list_name:
-                des = des + "\n{}".format(i)
+            for i in lists:
+                des = des + f"\n{i.name}({i.id})"
             embed = discord.Embed(
                 title="入っているサーバー",
                 description=des,
@@ -56,6 +54,39 @@ class AdminCog(commands.Cog):
             await interaction.response.send_message(embed=embed, ephemeral=True)
         else:
             await no_adimn(interaction)
+    
+    @app_commands.command(name="server_invite",description="Botが参加しているサーバーの招待を作成します。（管理者のみ)")
+    async def server_invite(self, interaction:discord.Interaction, id:str):
+        if check_admin(interaction.user.id):
+            #await interaction.response.send_message(content="どのサーバーの招待リンクを作成しますか？",ephemeral=True)
+            link = await self.bot.get_guild(int(id)).categories[0].channels[0].create_invite(reason='T-BOTの管理者によって作成されました。', max_uses=1)
+            await interaction.response.send_message(content=link, ephemeral=True)
+            
+        else:
+            await no_adimn(interaction)
+
+class server_invite_drop(discord.ui.Select):
+    def __init__(self, bot:commands.Bot, timeout: float | None = 180):
+        super().__init__(timeout=timeout)
+
+        self.server_name = []
+        for i in bot.guilds:
+            self.server_name.append(i.name)
+        self.server_name_choice = []
+        for i in self.server_name:
+            self.server_name_choice.append(discord.SelectOption(label=i))
+        self.server_id = []
+        for i in bot.guilds:
+            self.server_id.append(i.id)
+        
+        self.bot = bot
+
+        super().__init__(min_values=1, max_values=1, options=self.server_name)
+    async def callback(self, interaction:discord.Interaction):
+        if self.values[0] in self.server_name:
+            guild = self.bot.get_guild(self.server_id[self.server_name.index(self.values[0])])
+            link = await guild.categories[0].channels[0].create_invite(reason='T-BOTの管理者によって作成されました。', max_uses=1)
+            await interaction.response.send_message(content=link)
 
 async def setup(bot):
     await bot.add_cog(AdminCog(bot))
