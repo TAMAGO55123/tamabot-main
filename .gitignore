@@ -10,3 +10,4 @@ docs/*.zip
 cogs/a.py
 image/
 main/
+*.pyc
