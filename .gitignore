@@ -8,3 +8,5 @@ __pycache__
 docs/*.zip
 *.db
 cogs/a.py
+image/
+main/
