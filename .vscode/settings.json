@@ -12,6 +12,12 @@
             "name": "Raspberry Pi 4 Server",
             "database": "tbot",
             "username": "tamago"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "send_channel",
+            "database": "${workspaceFolder:tamabot-main}/database/send_channel.db"
         }
     ]
 }
