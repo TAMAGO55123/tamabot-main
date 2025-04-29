@@ -9,7 +9,7 @@ class NameCog(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        bot_ready_print("Cog")
+        bot_ready_print(self.__cog_name__)
 	
 
 async def setup(bot):
