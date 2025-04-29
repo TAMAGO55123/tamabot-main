@@ -41,6 +41,38 @@ async def main(bot:commands.Bot):
     
     
 
+
+    @bot.tree.context_menu(name="草を生やしまくる")
+    async def kusa_boubou(interaction:discord.Interaction, message:discord.Message):
+        kusa = [
+            "<a:1330484687801421824:1366689867765121146>",
+            "<:1160510894363644004:1366689856880775262>",
+            "<:1257190547135791195:1366689859447558155>",
+            "<:1257190750727176215:1366689861096050698>",
+            "<:1280204538057457694:1366689862782160978>",
+            "<:1293055646928998410:1366689865277902848>",
+            "<:1332940409592221796:1366689869308629055>",
+            "<:1343072400954228746:1366689871015710770>",
+            "<:1353378191036907692:1366689873074847794>",
+            "<:1354676301344280686:1366689875427983370>",
+            "<:1354836172483989625:1366689877051183195>",
+            "<:1365525798529794079:1366689880330997780>",
+            "🇼",
+            "🌱"
+        ]
+        await interaction.response.defer(thinking=True)
+        for i in kusa:
+            if i not in message.reactions:
+                await message.add_reaction(i)
+        true_kusa=0
+        for i in kusa:
+            if i in message.reactions:
+                true_kusa=true_kusa+1
+        if true_kusa == len(true_kusa):
+            await interaction.followup.send(content="もうすでに草は生えまくってるようですが")
+        else:
+            await interaction.followup.send(content="草を生やしました。")
+
     # Bot Start
     print('\033[38;2;255;165;0m \033[1m')
     print('--------------')
@@ -57,4 +89,5 @@ if __name__ == "__main__":
     intents.guilds = True
 
     bot = commands.Bot(command_prefix="t!", intents=intents)
+    discord.utils.setup_logging()
     asyncio.run(main(bot))
