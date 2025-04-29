@@ -10,7 +10,7 @@ class InfoCog(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        bot_ready_print("Info Cog")
+        bot_ready_print(self.__cog_name__)
 
     @app_commands.command(name="ping", description="Botが作動するかのテストコマンド")
     async def ping(self, interaction:discord.Interaction):

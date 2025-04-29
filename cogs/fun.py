@@ -10,7 +10,7 @@ class FunCog(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        bot_ready_print("Fun-Cog")
+        bot_ready_print(self.__cog_name__)
 	
     @app_commands.command(name="ggrks", description="ググレカス")
     async def ggrks(self, interaction:discord.Interaction, ggrks:str = "", link_embed:bool = True):
@@ -23,6 +23,8 @@ class FunCog(commands.Cog):
     @app_commands.command(name="smash", description="何かを投げます")
     async def smash(self, interaction: discord.Interaction, smash:str):
         await interaction.response.send_message(f"(っ'-')╮=͟͟͞ {smash}")
+    
+    
 
 async def setup(bot):
     await bot.add_cog(FunCog(bot))

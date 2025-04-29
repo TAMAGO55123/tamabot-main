@@ -8,7 +8,8 @@ from func.ready import bot_ready_print
 ADMIN_LIST=[
     1209261129835085876,
     1198921988769587211,
-    1225220580668739694
+    1225220580668739694,
+    1233064266580496506
 ]
 
 def check_admin(id:int):
@@ -28,7 +29,7 @@ class AdminCog(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        bot_ready_print("Admin-Cog")
+        bot_ready_print(self.__cog_name__)
     
     @app_commands.command(name="admin_bot_stop", description="Botを停止させます。(管理者のみ)")
     async def admin_bot_stop(self, interaction:discord.Interaction, ok:bool):
